@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HAMADEの歴史｜株式会社 東和電機製作所</title>
+<meta name="description" content="株式会社 東和電機製作所 HAMADE — 創造的改革へ。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>:root{
+  --bg:#fff; --fg:#0a1f3d; --sub:#4d5f78; --muted:#8c9ab0; --line:#e6ebf2; --surface:#f2f5f9;
+  --navy:#0a2a4d; --brand:#1f5fc4; --brand-soft:#e6eefb;
+  --header-h:64px; --gutter:clamp(16px,4vw,56px); --max:1320px; --ease:cubic-bezier(.22,.8,.2,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font-family:"Inter","Noto Sans JP","Hiragino Sans","Yu Gothic",system-ui,sans-serif;font-size:16px;line-height:1.7;letter-spacing:-0.005em;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{font-size:14px;font-weight:700;color:var(--brand);letter-spacing:.02em}
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--navy);z-index:100}
+
+/* header */
+.hd{position:fixed;inset:0 0 auto;height:var(--header-h);z-index:50;display:flex;align-items:center;transition:background .3s,box-shadow .3s}
+.hd.scrolled{background:rgba(255,255,255,.88);backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 1px 0 var(--line)}
+.hd .wrap{display:flex;align-items:center;width:100%;gap:32px}
+.logo{display:flex;align-items:center;gap:10px;flex:none;font-weight:800;letter-spacing:.12em;font-size:20px;color:var(--navy)}
+.logo i{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#6fa8dc 40%,var(--navy))}
+.logo small{font-size:11px;font-weight:500;letter-spacing:0;color:var(--muted);margin-left:2px;line-height:1.2}
+.gnb{display:flex;gap:28px;margin:0 auto;font-size:15px;font-weight:600}
+.gnb a{position:relative;padding:6px 0;color:var(--sub);transition:color .2s}
+.gnb a:hover,.gnb a[aria-current]{color:var(--fg)}
+.gnb a[aria-current]::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--navy);border-radius:2px}
+.pill{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 18px;border-radius:999px;font-size:14px;font-weight:700;background:var(--navy);color:#fff;transition:transform .2s var(--ease)}
+.pill:hover{transform:translateY(-1px)}
+.pill.brand{background:var(--brand)}
+.menu-btn{display:none;width:40px;height:40px;border-radius:50%;place-items:center}
+.menu-btn svg{width:22px;height:22px}
+
+/* hero */
+.hero{position:relative;height:260vh;background:var(--bg);isolation:isolate}
+.hero-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;place-items:center;background:var(--bg)}
+.hero-media{position:absolute;inset:0;clip-path:inset(var(--ci-y,40%) var(--ci-x,36%) round var(--ci-r,28px));will-change:clip-path;background:#020812}
+.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 55%;transform:scale(var(--img-s,1.25))}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,24,47,.15),rgba(6,24,47,.72));opacity:var(--shade,0)}
+.hero-word{position:relative;z-index:2;font-size:clamp(64px,19vw,320px);font-weight:900;letter-spacing:-0.055em;line-height:.9;color:#f5d5b2;mix-blend-mode:difference;white-space:nowrap;transform:translateY(var(--w-y,-12vh)) scale(var(--w-s,1));will-change:transform;display:flex}
+.hero-word span{display:inline-block;transform:translateY(105%);opacity:0;animation:rise 1s var(--ease) forwards;animation-delay:calc(var(--i)*55ms + 150ms)}
+@keyframes rise{to{transform:none;opacity:1}}
+.hero-meta{position:absolute;z-index:3;left:0;right:0;top:calc(50% + clamp(40px,9vw,150px) - 12vh);text-align:center;opacity:var(--meta-o,1);transform:translateY(var(--meta-y,0));padding:0 var(--gutter)}
+.hero-meta p{font-size:clamp(17px,1.6vw,22px);font-weight:700;margin-bottom:22px;animation:fade 1s .8s both}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;animation:fade 1s 1s both}
+.chip{display:inline-flex;align-items:center;height:32px;padding:0 13px;border-radius:999px;background:var(--navy);color:#fff;font-size:13px;font-weight:700}
+.chip.brand{background:var(--brand)}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}}
+.hero-caption{position:absolute;z-index:3;left:var(--gutter);right:var(--gutter);bottom:clamp(40px,9vh,96px);color:#fff;opacity:var(--cap-o,0);transform:translateY(var(--cap-y,30px));max-width:var(--max);margin:0 auto}
+.hero-caption .q{font-size:clamp(30px,4.8vw,72px);font-weight:800;line-height:1.2;letter-spacing:-0.035em}
+.hero-caption .q em{font-style:normal;color:#9cc2ff}
+.hero-caption small{display:block;margin-top:14px;font-size:clamp(14px,1.3vw,18px);opacity:.75;font-weight:500}
+.scroll-cue{position:absolute;z-index:3;bottom:28px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:700;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:var(--meta-o,1);letter-spacing:.1em}
+.scroll-cue i{width:1px;height:36px;background:linear-gradient(var(--muted),transparent);animation:cue 1.8s infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* chapters */
+.chapters{position:relative;padding-top:4vh;background:var(--bg);isolation:isolate}
+.chapter{position:relative}
+.ch-stick{position:sticky;top:0;height:100vh;height:100svh;display:grid;place-items:center;overflow:hidden;z-index:0;pointer-events:none}
+.ch-word{font-size:clamp(64px,15vw,250px);font-weight:900;letter-spacing:-0.05em;line-height:.9;white-space:nowrap;color:var(--navy);opacity:var(--o,0);transform:scale(var(--s,1.12));will-change:transform,opacity}
+.ch-word.ko{font-size:clamp(52px,11vw,190px);letter-spacing:-0.06em}
+.ch-body{position:relative;margin-top:-100vh;margin-top:-100svh;padding:22vh 0 8vh;z-index:1}
+.ch-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.ch-head{grid-column:var(--hc,1 / span 5);position:sticky;top:calc(var(--header-h) + 24px);z-index:4}
+.ch-head h2{font-size:clamp(28px,3vw,42px);font-weight:800;letter-spacing:-0.035em;line-height:1.3}
+.ch-head p{margin-top:10px;color:var(--muted);font-size:16px}
+.ch-card{grid-column:var(--cc,6 / span 6);aspect-ratio:4/5;border-radius:6px;overflow:hidden;position:relative;margin-top:34vh;color:#fff}
+.chapter.flip{--hc:7 / span 6;--cc:1 / span 6}
+.chapter.flip .ch-head,.chapter.flip .ch-card{grid-row:1}
+.ch-card .art{position:absolute;inset:0;width:100%;height:100%}
+.ch-card .stat{position:absolute;left:28px;right:28px;bottom:26px;z-index:1}
+.ch-card .stat b{display:block;font-size:clamp(40px,4.6vw,68px);font-weight:900;letter-spacing:-0.04em;line-height:1}
+.ch-card .stat span{font-size:15px;opacity:.8}
+.g1{background:linear-gradient(160deg,#1f5fc4,#06182f)}
+.g2{background:linear-gradient(160deg,#0a2a4d,#02080f)}
+.g3{background:linear-gradient(160deg,#2b7fd1,#0a2a4d)}
+
+/* message */
+.message{padding:clamp(100px,16vh,180px) 0}
+.msg-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,96px)}
+.msg-title{position:sticky;top:calc(var(--header-h) + 40px);align-self:start}
+.msg-title .qm{font-size:96px;line-height:.6;font-weight:900;color:var(--brand);display:block;height:46px}
+.msg-title h2{font-size:clamp(32px,3.8vw,54px);font-weight:800;letter-spacing:-0.04em;line-height:1.25}
+.msg-body p{font-size:clamp(19px,1.8vw,26px);line-height:1.75;font-weight:700;letter-spacing:-0.02em;opacity:.16;transition:opacity .7s var(--ease);margin-bottom:1.1em}
+.msg-body p.on{opacity:1}
+.msg-body p.sm{font-size:16px;font-weight:500;color:var(--sub)}
+.msg-body .closing{font-size:clamp(24px,2.6vw,36px);font-weight:900;line-height:1.4}
+.msg-body .closing em{font-style:normal;color:var(--brand)}
+
+/* numbers */
+.numbers{padding:clamp(96px,14vh,160px) 0;border-top:1px solid var(--line)}
+.numbers h2{font-size:clamp(32px,4.4vw,60px);font-weight:800;letter-spacing:-0.04em;line-height:1.2}
+.numbers h2 span{color:var(--muted)}
+.num-grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(56px,9vh,100px)}
+.num{padding:28px 24px 0 0;border-top:1px solid var(--line);position:relative}
+.num::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:0;background:var(--navy);transition:width 1.4s var(--ease)}
+.num.in::before{width:100%}
+.num dt{font-size:15px;color:var(--muted);font-weight:600}
+.num dd{margin-top:14px;font-size:clamp(40px,5.2vw,80px);font-weight:900;letter-spacing:-0.05em;line-height:1;font-variant-numeric:tabular-nums}
+.num dd small{font-size:.36em;font-weight:800;letter-spacing:-0.02em;margin-left:4px;color:var(--muted)}
+.badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:56px}
+.badge-row .chip{background:var(--surface);color:var(--fg);height:36px;padding:0 16px;font-size:14px}
+.badge-row .chip b{color:var(--brand)}
+
+/* slider */
+.values{padding:clamp(100px,16vh,170px) 0 clamp(80px,12vh,140px);overflow:hidden}
+.val-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.val-head h2{font-size:clamp(34px,4.6vw,64px);font-weight:800;letter-spacing:-0.045em;line-height:1.2}
+.arrows{display:flex;gap:8px;flex:none}
+.arrows button{width:48px;height:48px;border-radius:50%;background:var(--surface);display:grid;place-items:center;transition:background .2s,opacity .2s}
+.arrows button:hover{background:var(--line)}
+.arrows button:disabled{opacity:.35;cursor:default}
+.arrows svg{width:20px;height:20px}
+.track{display:flex;gap:clamp(20px,2.4vw,36px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-top:clamp(48px,7vh,72px);padding:0 var(--gutter);scroll-padding:0 var(--gutter)}
+.track::-webkit-scrollbar{display:none}
+@media (min-width:1432px){.track{padding-left:calc((100vw - var(--max))/2 + var(--gutter));scroll-padding-left:calc((100vw - var(--max))/2 + var(--gutter))}}
+.v-card{flex:0 0 clamp(250px,24vw,320px);scroll-snap-align:start}
+.v-ico{width:clamp(88px,8vw,112px);aspect-ratio:1;border-radius:6px;background:var(--navy);display:grid;place-items:center;color:#fff;transition:transform .5s var(--ease)}
+.v-card:hover .v-ico{transform:translateY(-6px) rotate(-3deg);background:var(--brand)}
+.v-ico svg{width:52%;height:52%}
+.v-card h3{margin-top:32px;font-size:clamp(22px,2vw,28px);font-weight:800;letter-spacing:-0.035em;line-height:1.3}
+.v-card p{margin-top:12px;color:var(--muted);font-size:15.5px;line-height:1.7}
+.v-card .tag{display:inline-block;margin-top:16px;font-size:12px;font-weight:800;color:var(--brand);background:var(--brand-soft);padding:4px 10px;border-radius:999px}
+
+/* history */
+.history{padding:clamp(80px,12vh,140px) 0 clamp(100px,16vh,180px);border-top:1px solid var(--line)}
+.his-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,96px)}
+.his-aside{position:sticky;top:calc(var(--header-h) + 32px);align-self:start}
+.his-aside h2{font-size:clamp(30px,3.2vw,44px);font-weight:800;letter-spacing:-0.04em;line-height:1.3}
+.his-year{margin-top:clamp(24px,4vh,48px);font-size:clamp(84px,11vw,180px);font-weight:900;letter-spacing:-0.06em;line-height:1;font-variant-numeric:tabular-nums;display:flex;overflow:hidden;height:1em}
+.his-year .d{display:inline-block;height:1em;overflow:hidden}
+.his-year .d span{display:block;transition:transform .7s var(--ease)}
+.his-year .d div{height:1em;line-height:1}
+.his-era{margin-top:20px;font-size:18px;font-weight:700;color:var(--brand)}
+.his-progress{margin-top:28px;height:2px;background:var(--line);border-radius:2px;overflow:hidden;max-width:360px}
+.his-progress i{display:block;height:100%;width:0;background:var(--navy);transition:width .6s var(--ease)}
+.his-list{list-style:none}
+.his-item{display:grid;grid-template-columns:96px 1fr;gap:24px;padding:30px 0;border-bottom:1px solid var(--line);opacity:.28;transition:opacity .5s}
+.his-item.on{opacity:1}
+.his-item:first-child{padding-top:0}
+.his-item time{font-size:22px;font-weight:800;letter-spacing:-0.03em;font-variant-numeric:tabular-nums}
+.his-item ul{list-style:none;display:grid;gap:8px}
+.his-item li{font-size:17px;font-weight:500;line-height:1.55}
+.his-item small{display:block;color:var(--muted);font-size:13px;font-weight:400}
+.flag{display:inline-block;font-size:12px;font-weight:800;color:var(--brand);background:var(--brand-soft);padding:3px 9px;border-radius:999px;margin-right:6px;vertical-align:2px}
+
+/* panels */
+.panels{display:flex;height:min(86vh,760px)}
+.panel{position:relative;flex:1;overflow:hidden;color:#fff;transition:flex .8s var(--ease);display:block;border-right:1px solid rgba(255,255,255,.1)}
+.panel:last-child{border-right:0}
+.panel.active{flex:4.2}
+.panel .bg{position:absolute;inset:0;transition:transform 1.2s var(--ease),opacity .6s}
+.panel:not(.active) .bg{opacity:.7}
+.panel.active .bg{transform:scale(1.04)}
+.panel .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,0) 40%,rgba(0,0,0,.45))}
+.p-in{position:absolute;inset:0;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column}
+.p-label{font-size:clamp(17px,1.4vw,20px);font-weight:800;line-height:1.35;min-width:7em}
+.p-title{margin-top:auto;font-size:clamp(28px,3.4vw,52px);font-weight:800;letter-spacing:-0.04em;line-height:1.25;opacity:0;transform:translateY(16px);transition:opacity .5s .15s,transform .7s .15s var(--ease);max-width:13em}
+.p-go{margin-top:24px;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;opacity:0;transition:opacity .5s .25s}
+.p-go i{width:36px;height:36px;border-radius:50%;background:#fff;color:var(--navy);display:grid;place-items:center;font-style:normal}
+.panel.active .p-title,.panel.active .p-go{opacity:1;transform:none}
+.b1{background:linear-gradient(160deg,#2b7fd1,#0a2a4d)}
+.b2{background:linear-gradient(160deg,#0a2a4d,#02080f)}
+.b3{background:linear-gradient(160deg,#1f5fc4,#0a2a4d)}
+.b4{background:linear-gradient(160deg,#4a6a94,#12233d)}
+.b5{background:linear-gradient(160deg,#143a6b,#030b17)}
+
+/* news */
+.news{padding:clamp(80px,12vh,140px) 0;border-top:1px solid var(--line)}
+.news h2{font-size:clamp(30px,3.6vw,48px);font-weight:800;letter-spacing:-0.04em;margin:14px 0 40px}
+.news-list a{display:grid;grid-template-columns:130px 90px 1fr 24px;gap:20px;align-items:center;padding:24px 4px;border-top:1px solid var(--line);transition:padding .35s var(--ease)}
+.news-list a:last-child{border-bottom:1px solid var(--line)}
+.news-list a:hover{padding-left:16px}
+.news-list time{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.news-list .flag{margin:0;text-align:center}
+
+/* footer + dock */
+.ft{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 140px;font-size:13px}
+.ft .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;justify-content:space-between}
+.ft .logo{color:#fff}.ft .logo small{color:rgba(255,255,255,.6)}
+.ft nav{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px}
+.ft nav a:hover{color:#fff}
+.dock{position:fixed;left:50%;bottom:24px;z-index:40;transform:translate(-50%,calc(100% + 40px));transition:transform .6s var(--ease);width:min(560px,calc(100% - 32px))}
+.dock.show{transform:translate(-50%,0)}
+.dock-bar{display:flex;align-items:center;gap:10px;height:58px;padding:0 8px 0 22px;border-radius:999px;background:rgba(10,42,77,.94);color:#fff;backdrop-filter:blur(12px);box-shadow:0 10px 40px rgba(10,42,77,.3)}
+.dock-bar span{flex:1;font-size:15px;font-weight:500;color:#c9d6e8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dock-bar .pill{height:42px;background:#fff;color:var(--navy)}
+
+/* history page hero */
+.ph{min-height:100svh;display:grid;place-items:center;position:relative;overflow:hidden;text-align:center;padding:120px var(--gutter) 80px}
+.ph h1{font-size:clamp(64px,18vw,300px);font-weight:900;letter-spacing:-0.06em;line-height:.9;color:var(--navy)}
+.ph h1 span{display:inline-block;transform:translateY(105%);opacity:0;animation:rise 1s var(--ease) forwards;animation-delay:calc(var(--i)*50ms + 150ms)}
+.ph p{margin-top:28px;font-size:clamp(17px,1.6vw,22px);font-weight:700;animation:fade 1s .9s both}
+.ph .chips{margin-top:22px}
+.crumb{position:absolute;left:var(--gutter);top:88px;font-size:13px;color:var(--muted)}
+.crumb a:hover{color:var(--fg)}.crumb i{margin:0 8px;font-style:normal;opacity:.5}
+.era-list{list-style:none;margin-top:36px}
+.era-item{display:grid;grid-template-columns:96px 1fr;gap:24px;padding:26px 0;border-top:1px solid var(--line);opacity:.3;transition:opacity .5s}
+.era-item.on{opacity:1}
+.era-item time{font-size:24px;font-weight:900;letter-spacing:-0.03em;font-variant-numeric:tabular-nums}
+.era-item ul{list-style:none;display:grid;gap:8px}
+.era-item li{font-size:17px;font-weight:500;line-height:1.55}
+.ch-head .count{display:inline-block;margin-top:18px}
+.ch-body.hist{padding-top:18vh}
+.hist-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,96px);align-items:start}
+.hist-grid .ch-head{grid-column:auto}
+
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:1024px){.gnb{display:none}.menu-btn{display:grid}.hd .wrap{justify-content:space-between}.num-grid{grid-template-columns:repeat(2,1fr);row-gap:48px}}
+@media (max-width:760px){
+  :root{--header-h:56px}
+  .hd .pill{display:none}.hero{height:220vh}.scroll-cue{display:none}
+  .ch-body{padding:10vh 0 4vh}.ch-grid{display:block}.ch-head{position:relative;top:auto}.ch-card{margin-top:20vh}
+  .msg-grid,.his-grid,.hist-grid{grid-template-columns:1fr}.msg-title{position:relative;top:auto}
+  .his-aside{top:var(--header-h);background:var(--bg);z-index:5;padding:16px var(--gutter) 12px;margin:0 calc(-1*var(--gutter));border-bottom:1px solid var(--line)}
+  .his-aside h2{font-size:15px;color:var(--muted)}.his-year{font-size:64px;margin-top:6px}.his-era{margin-top:6px;font-size:14px}.his-progress{display:none}
+  .his-item,.era-item{grid-template-columns:64px 1fr;gap:16px;padding:24px 0}
+  .val-head{flex-direction:column;align-items:flex-start}.arrows{display:none}.v-card{flex-basis:78vw}
+  .panels{flex-direction:column;height:auto}
+  .panel,.panel.active{flex:none;height:180px;border-right:0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .panel .bg{opacity:1!important}.p-title{font-size:24px;opacity:1;transform:none}.p-go{opacity:1;margin-top:12px}
+  .news-list a{grid-template-columns:96px 1fr;}.news-list .flag,.news-list a>span:last-child{display:none}
+  .dock{bottom:14px}.dock-bar{height:54px}
+  .crumb{top:72px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}}
+</style></head><body>
+<div id="progress"></div>
+<header class="hd" id="hd"><div class="wrap">
+<a class="logo" href="index.html"><i></i>HAMADE<small>東和電機製作所</small></a>
+<nav class="gnb"><a href="index.html#about">会社情報</a><a href="history.html" aria-current="page">HAMADEの歴史</a><a href="index.html#products">製品情報</a><a href="index.html#news">お知らせ</a><a href="#">採用情報</a></nav>
+<a class="pill" href="#">お問い合わせ</a>
+<button class="menu-btn" aria-label="メニュー"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></header>
+<main>
+<section class="ph"><div class="crumb"><a href="index.html">トップ</a><i>›</i><a href="index.html#about">会社情報</a><i>›</i>HAMADEの歴史</div>
+<div><h1 aria-label="History"><span style="--i:0">H</span><span style="--i:1">i</span><span style="--i:2">s</span><span style="--i:3">t</span><span style="--i:4">o</span><span style="--i:5">r</span><span style="--i:6">y</span></h1><p>1963年の創業から現在まで。技術と挑戦の歩み。</p>
+<div class="chips"><span class="chip brand">#1963–2025</span><span class="chip">#全40の出来事</span><span class="chip">#受賞8件</span></div></div></section>
+<div class="chapters"><section class="chapter"><div class="ch-stick" aria-hidden="true"><div class="ch-word">1960s</div></div>
+<div class="ch-body hist"><div class="wrap hist-grid"><div class="ch-head"><p class="eyebrow">1960s</p><h2>創業と手巻き式の時代</h2><p>2件の出来事</p></div>
+<ol class="era-list"><li class="era-item"><time>1963</time><ul><li><span class="flag">創業</span>会社設立</li><li style="color:var(--muted);font-size:13px">昭和38年</li></ul></li><li class="era-item"><time>1968</time><ul><li>手巻き式イカ釣機発売</li><li style="color:var(--muted);font-size:13px">昭和43年</li></ul></li></ol></div></div></section><section class="chapter"><div class="ch-stick" aria-hidden="true"><div class="ch-word">1970s</div></div>
+<div class="ch-body hist"><div class="wrap hist-grid"><div class="ch-head"><p class="eyebrow">1970s</p><h2>全自動化と事業拡大</h2><p>7件の出来事</p></div>
+<ol class="era-list"><li class="era-item"><time>1970</time><ul><li>全自動イカ釣機発売</li><li style="color:var(--muted);font-size:13px">昭和45年</li></ul></li><li class="era-item"><time>1973</time><ul><li>全漁連・八戸漁連指定品認定</li><li>販売9100台突破</li><li style="color:var(--muted);font-size:13px">昭和48年</li></ul></li><li class="era-item"><time>1974</time><ul><li>イカ釣機用集中制御盤発売</li><li style="color:var(--muted);font-size:13px">昭和49年</li></ul></li><li class="era-item"><time>1975</time><ul><li>サイリスタ制御式イカ釣機発売</li><li>体育館完成</li><li style="color:var(--muted);font-size:13px">昭和50年</li></ul></li><li class="era-item"><time>1976</time><ul><li>本社工場新設</li><li style="color:var(--muted);font-size:13px">昭和51年</li></ul></li><li class="era-item"><time>1977</time><ul><li>揚縄機発売</li><li>組立工場新設</li><li style="color:var(--muted);font-size:13px">昭和52年</li></ul></li><li class="era-item"><time>1978</time><ul><li>小形揚縄機(ミニホーラー)発売</li><li>ギアードモータ開発</li><li style="color:var(--muted);font-size:13px">昭和53年</li></ul></li></ol></div></div></section><section class="chapter"><div class="ch-stick" aria-hidden="true"><div class="ch-word">1980s</div></div>
+<div class="ch-body hist"><div class="wrap hist-grid"><div class="ch-head"><p class="eyebrow">1980s</p><h2>マイコン制御の時代</h2><p>6件の出来事</p></div>
+<ol class="era-list"><li class="era-item"><time>1980</time><ul><li>P-1-A型イカ・魚釣機発売</li><li style="color:var(--muted);font-size:13px">昭和55年</li></ul></li><li class="era-item"><time>1982</time><ul><li>ホタテ貝穴あけ機発売</li><li style="color:var(--muted);font-size:13px">昭和57年</li></ul></li><li class="era-item"><time>1983</time><ul><li>芋選別機ポテーラ発売</li><li>イカロボ開発</li><li style="color:var(--muted);font-size:13px">昭和58年</li></ul></li><li class="era-item"><time>1984</time><ul><li>コンピューター式全自動イカ釣機MY-1型発売</li><li>初代社長交代</li><li style="color:var(--muted);font-size:13px">昭和59年</li></ul></li><li class="era-item"><time>1985</time><ul><li>バッテリー式マイコン内蔵イカ釣機MY-24型発売</li><li style="color:var(--muted);font-size:13px">昭和60年</li></ul></li><li class="era-item"><time>1986</time><ul><li>ホタテカゴ洗浄機発売</li><li>一本釣機UGシリーズ発売</li><li style="color:var(--muted);font-size:13px">昭和61年</li></ul></li></ol></div></div></section><section class="chapter"><div class="ch-stick" aria-hidden="true"><div class="ch-word">1990s</div></div>
+<div class="ch-body hist"><div class="wrap hist-grid"><div class="ch-head"><p class="eyebrow">1990s</p><h2>技術革新と受賞</h2><p>9件の出来事（うち受賞 1）</p></div>
+<ol class="era-list"><li class="era-item"><time>1990</time><ul><li>イカロボエースMY-3型発売</li><li>カーボンファイバードラム試作</li><li style="color:var(--muted);font-size:13px">平成2年</li></ul></li><li class="era-item"><time>1991</time><ul><li>自動ホタテ貝穴あけ機HDA-100型発売</li><li>本社事務所新設</li><li style="color:var(--muted);font-size:13px">平成3年</li></ul></li><li class="era-item"><time>1992</time><ul><li><span class="flag">受賞</span>発明協会北海道知事賞受賞</li><li style="color:var(--muted);font-size:13px">平成4年</li></ul></li><li class="era-item"><time>1993</time><ul><li>マイコン式揚縄機発売</li><li>イカ生処理加工機開発</li><li style="color:var(--muted);font-size:13px">平成5年</li></ul></li><li class="era-item"><time>1995</time><ul><li>カーボンファイバー製軽量ドラム発売</li><li>マグロ一本釣機MR-2型発売</li><li style="color:var(--muted);font-size:13px">平成7年</li></ul></li><li class="era-item"><time>1996</time><ul><li>資本金1,000万円に増資</li><li>ハワイ社員旅行実施</li><li style="color:var(--muted);font-size:13px">平成8年</li></ul></li><li class="era-item"><time>1997</time><ul><li>全自動イカ釣機MY-10型発売</li><li>FAD-800型発売</li><li style="color:var(--muted);font-size:13px">平成9年</li></ul></li><li class="era-item"><time>1998</time><ul><li>FAD-800SS型発売</li><li style="color:var(--muted);font-size:13px">平成10年</li></ul></li><li class="era-item"><time>1999</time><ul><li>スルメ加工機試作</li><li>サンマ漁灯試作</li><li style="color:var(--muted);font-size:13px">平成11年</li></ul></li></ol></div></div></section><section class="chapter"><div class="ch-stick" aria-hidden="true"><div class="ch-word">2000s</div></div>
+<div class="ch-body hist"><div class="wrap hist-grid"><div class="ch-head"><p class="eyebrow">2000s</p><h2>LEDと海水電解への挑戦</h2><p>9件の出来事（うち受賞 4）</p></div>
+<ol class="era-list"><li class="era-item"><time>2000</time><ul><li>GPS利用測量機器発売</li><li><span class="flag">受賞</span>発明協会地方発明賞受賞</li><li style="color:var(--muted);font-size:13px">平成12年</li></ul></li><li class="era-item"><time>2002</time><ul><li>全自動イカ釣機MY-7型発売</li><li><span class="flag">受賞</span>特許庁長官知財功労賞受賞</li><li style="color:var(--muted);font-size:13px">平成14年</li></ul></li><li class="era-item"><time>2003</time><ul><li><span class="flag">受賞</span>北海道新聞文化賞受賞</li><li>LED漁灯開発着手</li><li style="color:var(--muted);font-size:13px">平成15年</li></ul></li><li class="era-item"><time>2004</time><ul><li>海水電解殺菌装置発売</li><li>LED漁灯(RGB)開発</li><li style="color:var(--muted);font-size:13px">平成16年</li></ul></li><li class="era-item"><time>2005</time><ul><li>新型オモリ鉄矢発売</li><li>巻下制御ユニット発売</li><li style="color:var(--muted);font-size:13px">平成17年</li></ul></li><li class="era-item"><time>2006</time><ul><li>高出力全自動イカ釣機EX-1型発売</li><li><span class="flag">受賞</span>「今年のロボット大賞」受賞</li><li style="color:var(--muted);font-size:13px">平成18年</li></ul></li><li class="era-item"><time>2007</time><ul><li>ものづくり展出展</li><li style="color:var(--muted);font-size:13px">平成19年</li></ul></li><li class="era-item"><time>2008</time><ul><li>サンマ漁LED漁灯発売</li><li>資本金9,900万に増資</li><li style="color:var(--muted);font-size:13px">平成20年</li></ul></li><li class="era-item"><time>2009</time><ul><li>高機能全自動イカ釣機MY-12型発売</li><li style="color:var(--muted);font-size:13px">平成21年</li></ul></li></ol></div></div></section><section class="chapter"><div class="ch-stick" aria-hidden="true"><div class="ch-word">2010s</div></div>
+<div class="ch-body hist"><div class="wrap hist-grid"><div class="ch-head"><p class="eyebrow">2010s</p><h2>世界へ、そして継承</h2><p>6件の出来事（うち受賞 3）</p></div>
+<ol class="era-list"><li class="era-item"><time>2010</time><ul><li><span class="flag">受賞</span>海洋水産システム協会協会賞受賞</li><li style="color:var(--muted);font-size:13px">平成22年</li></ul></li><li class="era-item"><time>2012</time><ul><li>全自動ホタテ穴あけ結束装置TEC-3型発売</li><li style="color:var(--muted);font-size:13px">平成24年</li></ul></li><li class="era-item"><time>2013</time><ul><li><span class="flag">50周年</span>50周年記念式典実施</li><li style="color:var(--muted);font-size:13px">平成25年</li></ul></li><li class="era-item"><time>2014</time><ul><li><span class="flag">受賞</span>グローバルニッチトップ企業100選受賞</li><li style="color:var(--muted);font-size:13px">平成26年</li></ul></li><li class="era-item"><time>2017</time><ul><li><span class="flag">受賞</span>社長が秋の叙勲「旭日双光章」受章</li><li style="color:var(--muted);font-size:13px">平成29年</li></ul></li><li class="era-item"><time>2019</time><ul><li>三代目社長就任</li><li style="color:var(--muted);font-size:13px">令和元年</li></ul></li></ol></div></div></section><section class="chapter"><div class="ch-stick" aria-hidden="true"><div class="ch-word">2020s</div></div>
+<div class="ch-body hist"><div class="wrap hist-grid"><div class="ch-head"><p class="eyebrow">2020s</p><h2>新たな航海</h2><p>1件の出来事</p></div>
+<ol class="era-list"><li class="era-item"><time>2025</time><ul><li><span class="flag">NEW</span>九州事業部新設</li><li style="color:var(--muted);font-size:13px">令和7年</li></ul></li></ol></div></div></section></div>
+<section class="numbers" style="border:0;padding-top:0"><div class="wrap"><a class="pill" href="index.html">← トップへ戻る</a></div></section>
+</main>
+<footer class="ft" id="ft"><div class="wrap">
+<a class="logo" href="index.html"><i></i>HAMADE<small>株式会社 東和電機製作所</small></a>
+<nav><a href="index.html#about">会社情報</a><a href="history.html">HAMADEの歴史</a><a href="index.html#products">製品情報</a><a href="#">採用情報</a><a href="#">お問い合わせ</a><a href="#">ENGLISH</a></nav>
+<p style="flex-basis:100%;font-size:12px">© 2026 株式会社東和電機製作所 ／ デザインリニューアル案（コピーの一部は仮のものです）</p>
+</div></footer>
+<div class="dock" id="dock"><div class="dock-bar"><span>製品・導入のご相談はお気軽にどうぞ</span><a class="pill" href="#">お問い合わせ</a></div></div>
+<script>(()=>{
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const root=document.documentElement,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)),ease=t=>1-Math.pow(1-t,3);
+const hd=$('#hd'),bar=$('#progress'),hero=$('#hero'),media=$('#heroMedia'),word=$('#heroWord'),meta=$('#heroMeta'),cap=$('#heroCap'),dock=$('#dock'),panels=$('#panels'),ft=$('#ft');
+const chapters=$$('.chapter');
+
+/* night-sea canvas */
+const cv=$('#sea');
+if(cv){
+  const ctx=cv.getContext('2d');let W,H;
+  const size=()=>{const d=Math.min(2,devicePixelRatio||1);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0)};
+  size();addEventListener('resize',size);
+  const lamps=Array.from({length:11},(_,i)=>({x:.05+i*.09+Math.random()*.02,p:Math.random()*6}));
+  const bub=Array.from({length:50},()=>({x:Math.random(),y:Math.random(),r:Math.random()*2.2+.5,s:Math.random()*.0006+.0002}));
+  const hz=()=>H*.62;
+  const wave=(t,k,a,l,sp,c)=>{const y0=hz()+k*28;ctx.beginPath();ctx.moveTo(0,H);for(let x=0;x<=W;x+=8)ctx.lineTo(x,y0+Math.sin(x/l+t*sp)*a+Math.sin(x/(l*.43)+t*sp*1.7)*a*.4);ctx.lineTo(W,H);ctx.fillStyle=c;ctx.fill()};
+  const draw=ms=>{
+    const t=ms/1000;
+    const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#020812');g.addColorStop(.6,'#0a2a4d');g.addColorStop(1,'#12407a');
+    ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='#fff';
+    for(let i=0;i<70;i++){ctx.globalAlpha=.15+.5*Math.abs(Math.sin(t*.7+i));ctx.fillRect((i*137.5%100)/100*W,(i*53.3%100)/100*hz()*.9,1.5,1.5)}
+    ctx.globalAlpha=1;
+    lamps.forEach(l=>{
+      const x=l.x*W,y=hz()-8+Math.sin(t+l.p)*2,f=.8+.2*Math.sin(t*3+l.p);
+      const r=ctx.createRadialGradient(x,y,0,x,y,90*f);r.addColorStop(0,'rgba(255,244,214,.95)');r.addColorStop(.15,'rgba(255,224,160,.45)');r.addColorStop(1,'rgba(255,224,160,0)');
+      ctx.fillStyle=r;ctx.fillRect(x-110,y-110,220,220);
+      const b=ctx.createLinearGradient(0,y,0,H);b.addColorStop(0,'rgba(255,236,190,.3)');b.addColorStop(1,'rgba(255,236,190,0)');
+      ctx.fillStyle=b;ctx.beginPath();ctx.moveTo(x-4,y);ctx.lineTo(x+4,y);ctx.lineTo(x+34*Math.sin(t+l.p),H);ctx.lineTo(x-34*Math.sin(t+l.p),H);ctx.fill();
+    });
+    wave(t,0,10,90,1.1,'rgba(31,95,196,.35)');wave(t,1,14,140,.8,'rgba(12,56,112,.6)');wave(t,2,18,200,.6,'rgba(6,30,60,.85)');wave(t,3.4,22,260,.45,'rgba(2,10,22,.97)');
+    ctx.strokeStyle='rgba(180,215,255,.3)';
+    bub.forEach(b=>{b.y-=b.s*16;if(b.y<hz()/H)b.y=1.02;ctx.beginPath();ctx.arc((b.x+Math.sin(t+b.y*6)*.01)*W,b.y*H,b.r,0,7);ctx.stroke()});
+    reduce||requestAnimationFrame(draw);
+  };
+  requestAnimationFrame(draw);
+}
+
+const hv=$('#heroVideo');hv&&(hv.play&&hv.play().catch(()=>{}),reduce&&hv.pause());
+$$('video[data-lazy]').forEach(v=>{if(reduce)return;new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?v.play().catch(()=>{}):v.pause()),{threshold:.2}).observe(v)});
+/* scroll scenes */
+function frame(){
+  const vh=innerHeight,y=scrollY;
+  hd.classList.toggle('scrolled',y>10);
+  bar.style.width=(y/(document.documentElement.scrollHeight-vh)*100)+'%';
+  if(hero){
+    const hr=hero.getBoundingClientRect(),p=clamp(-hr.top/(hr.height-vh)),open=ease(clamp(p/.6)),mob=innerWidth<760;
+    media.style.setProperty('--ci-y',40*(1-open)+'%');
+    media.style.setProperty('--ci-x',(mob?12:36)*(1-open)+'%');
+    media.style.setProperty('--ci-r',28*(1-open)+'px');
+    media.style.transform=`translateY(${(1-open)*(mob?34:38)}vh)`;
+    media.style.setProperty('--img-s',1.25-.25*open);
+    media.style.setProperty('--shade',clamp((p-.45)/.3));
+    const wp=ease(clamp((p-.3)/.5));
+    word.style.setProperty('--w-s',1-.55*wp);word.style.setProperty('--w-y',(-12-22*wp)+'vh');
+    word.style.opacity=1-clamp((p-.6)/.25);
+    root.style.setProperty('--meta-o',1-clamp(p/.18));
+    meta.style.setProperty('--meta-y',-40*clamp(p/.18)+'px');
+    const cp=clamp((p-.62)/.25);
+    cap.style.setProperty('--cap-o',cp);cap.style.setProperty('--cap-y',30*(1-ease(cp))+'px');
+    if(dock&&panels){const pr=panels.getBoundingClientRect();dock.classList.toggle('show',hr.bottom<vh*.4&&pr.top>vh*.75)}
+  }else if(dock){
+    dock.classList.toggle('show',y>vh*.6&&ft.getBoundingClientRect().top>vh*.8);
+  }
+  for(const c of chapters){
+    const r=c.getBoundingClientRect(),w=$('.ch-word',c);
+    const enter=clamp((vh-r.top)/vh),leave=clamp((r.bottom-vh*.6)/(vh*.6));
+    w.style.setProperty('--o',Math.min(ease(enter),leave));
+    w.style.setProperty('--s',1.14-.14*ease(enter));
+  }
+}
+let tick=false;
+const onS=()=>{if(!tick){tick=true;requestAnimationFrame(()=>{frame();tick=false})}};
+addEventListener('scroll',onS,{passive:true});addEventListener('resize',onS);frame();
+
+/* message lights */
+const io1=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('on',e.isIntersecting)),{rootMargin:'-35% 0px -35% 0px'});
+$$('#msgBody p').forEach(p=>io1.observe(p));
+
+/* counters */
+const io2=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;io2.unobserve(e.target);e.target.classList.add('in');
+  const el=$('[data-count]',e.target),to=+el.dataset.count,t0=performance.now(),dur=reduce?0:1600,plain=el.dataset.plain;
+  const st=t=>{const k=dur?clamp((t-t0)/dur):1,v=Math.round(to*ease(k));el.textContent=plain?v:v.toLocaleString();k<1&&requestAnimationFrame(st)};requestAnimationFrame(st);
+}),{threshold:.4});
+$$('.num').forEach(n=>io2.observe(n));
+
+/* slider */
+const track=$('#track');
+if(track){
+  const prev=$('#prev'),next=$('#next');
+  const step=()=>$('.v-card',track).getBoundingClientRect().width+parseFloat(getComputedStyle(track).columnGap||24);
+  prev.onclick=()=>track.scrollBy({left:-step(),behavior:'smooth'});next.onclick=()=>track.scrollBy({left:step(),behavior:'smooth'});
+  const ar=()=>{prev.disabled=track.scrollLeft<4;next.disabled=track.scrollLeft+track.clientWidth>track.scrollWidth-4};
+  track.addEventListener('scroll',ar,{passive:true});ar();
+}
+
+/* history rolling year */
+const hy=$('#hisYear');
+if(hy){
+  const items=$$('.his-item');
+  hy.innerHTML='<span class="d"></span>'.repeat(4);
+  const dg=[...hy.children].map(d=>{d.innerHTML='<span>'+[...'0123456789'].map(n=>`<div>${n}</div>`).join('')+'</span>';return d.firstChild});
+  const eras=[[1960,'創業と手巻き式の時代'],[1970,'全自動化と事業拡大'],[1980,'マイコン制御の時代'],[1990,'技術革新と受賞'],[2000,'LEDと海水電解への挑戦'],[2010,'世界へ、そして継承'],[2020,'新たな航海']];
+  const set=i=>{items.forEach((it,k)=>it.classList.toggle('on',k===i));const y=items[i].dataset.y;String(y).split('').forEach((n,k)=>dg[k].style.transform=`translateY(${-n}em)`);
+    $('#hisEra').textContent=eras.reduce((a,e)=>y>=e[0]?e[1]:a,'');$('#hisBar').style.width=((i+1)/items.length*100)+'%'};
+  const io3=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)set(items.indexOf(e.target))}),{rootMargin:'-45% 0px -50% 0px'});
+  items.forEach(i=>io3.observe(i));set(0);
+}
+/* history page: era items light up */
+const io5=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('on',e.isIntersecting)),{rootMargin:'-40% 0px -45% 0px'});
+$$('.era-item').forEach(i=>io5.observe(i));
+
+/* panels */
+if(panels){const ps=$$('.panel',panels),act=p=>ps.forEach(x=>x.classList.toggle('active',x===p));ps.forEach(p=>{p.addEventListener('mouseenter',()=>act(p));p.addEventListener('focus',()=>act(p))})}
+
+/* reveal */
+const io4=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io4.unobserve(e.target)}}),{threshold:.15});
+$$('.ch-card,.v-card,.val-head,.numbers h2,.news-list a').forEach(el=>{el.classList.add('rv');io4.observe(el)});
+$$('.v-card').forEach((c,i)=>c.style.transitionDelay=(i*70)+'ms');
+})();
+</script></body></html>
